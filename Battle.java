@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  *
  * System for working out battle rounds. Class takes player and opponent, then performs battle steps.
@@ -62,7 +60,7 @@ public class Battle {
 			luckyPlayer = this.player.luckCheck();
 		}
 		
-		//NEED TO ADD CODE TO CHECK IF PLAYER WANTS TO USE LKUCK AND WHAT THE RESULT IS TO DETERMINE BATTLE RESULT.
+		//NEED TO ADD CODE TO CHECK IF PLAYER WANTS ESCAPE BATTLE
 		
 		if (playerScore == enemyScore)
 		{	
@@ -144,11 +142,10 @@ public class Battle {
 		
 		boolean validChoice = false;
 				
-		Scanner fc = new Scanner(System.in);
 		System.out.println("Do you wish to try your luck:");
 		System.out.println("1: Y");
 		System.out.println("2: N");
-		int myChoice = fc.nextInt();
+		int myChoice = Testing.scan.nextInt();
 		
 		while(validChoice == false)
 		{
@@ -164,7 +161,50 @@ public class Battle {
 			default:
 				System.out.println("Please try again as that choice does not exist!");
 				System.out.println("Please enter your choice: ");
-				myChoice = fc.nextInt();				
+				myChoice = Testing.scan.nextInt();				
+				break;
+			}
+		}
+		
+		if (myChoice == 1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
+	
+	/**
+	 * Checks if user wants to escape from battle.
+	 */
+	public boolean escapeBattle()
+	{
+		
+		boolean validChoice = false;
+				
+		System.out.println("Do you wish to escape (you will lose 2 stamina points):");
+		System.out.println("1: Y");
+		System.out.println("2: N");
+		int myChoice = Testing.scan.nextInt();
+		
+		while(validChoice == false)
+		{
+			switch(myChoice)
+			{
+			case 1:
+				validChoice = true;
+				break;				
+							
+			case 2:
+				validChoice = true;
+				break;				
+			default:
+				System.out.println("Please try again as that choice does not exist!");
+				System.out.println("Please enter your choice: ");
+				myChoice = Testing.scan.nextInt();				
 				break;
 			}
 		}

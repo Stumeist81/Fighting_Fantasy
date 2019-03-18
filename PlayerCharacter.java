@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Class for player character. Extends the Character class, adds luck attribute, adds an inventory (of class CharacterInventory), jewels,
  * rations and gold attributes. Includes all relevant getter and setter methods.
@@ -101,16 +99,12 @@ public class PlayerCharacter extends Character {
 	 */
 	public void createCharacter()
 	{
-		// Create a Scanner object to read user input
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		
 		//Prompt the user to enter a new for their character
 		System.out.println("Welcome to Character Creation");
 		System.out.println("This will guide you through the process of creating a new character for your adventure!");
 		System.out.print("Please enter a name for your character: ");
 		
-		String myName = sc.nextLine();
+		String myName = Testing.scan.nextLine();
 		this.setCharacterName(myName);
 				
 		this.setSkill(this.rollDice() + 6);
@@ -126,7 +120,7 @@ public class PlayerCharacter extends Character {
 		System.out.println("3) A Potion of Luck");
 		System.out.println("Please enter your choice: ");
 				
-		int choice = sc.nextInt();
+		int choice = Testing.scan.nextInt();
 				
 		while(myStarterPotion == false)
 		{
@@ -150,7 +144,7 @@ public class PlayerCharacter extends Character {
 			default:
 				System.out.println("Please try again as that choice does not exist!");
 				System.out.println("Please enter your choice: ");
-				choice = sc.nextInt();				
+				choice = Testing.scan.nextInt();				
 				break;
 			}
 		}
